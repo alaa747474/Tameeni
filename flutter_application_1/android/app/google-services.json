@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "915531582964",
+    "project_id": "tameni-23194",
+    "storage_bucket": "tameni-23194.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915531582964:android:afa0eee5bd82fabaeabda1",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915531582964-7nais17oqkq369305iv7naefa4cj3auh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_application_1",
+            "certificate_hash": "43184cc3ca7599dcce8cd9f0a6247dc70339a7e9"
+          }
+        },
+        {
+          "client_id": "915531582964-56thh81ndaoeuv4hhuknlg658b83q0l3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTwm3_k_7id02ineLdFDY8fwekPcio6yM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915531582964-56thh81ndaoeuv4hhuknlg658b83q0l3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
