@@ -17,7 +17,7 @@ class _darkState extends State<dark> {
 
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark().copyWith(
-        appBarTheme: AppBarTheme(color: const Color(0xFF253341)),
+        appBarTheme: const AppBarTheme(color: Color(0xFF253341)),
         scaffoldBackgroundColor: const Color(0xFF15202B),
       ),
       themeMode: isDarkModeEnabled ? ThemeMode.dark : ThemeMode.light,

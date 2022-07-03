@@ -67,16 +67,32 @@ class _signinState extends State<signin> {
             const SizedBox(
               height: 15,
             ),
-            Text(
-              "قم بمسح كارنيه التأمين الخاصة بك  ",
-              style: GoogleFonts.roboto(
-                color: Color.fromRGBO(34, 49, 46, 30),
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                letterSpacing: -4,
-              ),
-              textAlign: TextAlign.center,
-            ),
+             Visibility(
+                      visible: widget.type == 1,
+                      child:Text("قم بمسح بطاقة التأمين الخاصه بك",style: GoogleFonts.roboto(
+                   textStyle: const TextStyle(
+                       color: Color.fromRGBO(34, 49, 46, 30),
+                       fontSize: 18,
+                       fontWeight: FontWeight.bold),
+                ),)),
+                 Visibility(
+                      visible: widget.type == 2,
+                      child:Text("قم بمسح كارنية النقابة الخاص بك",style: GoogleFonts.roboto(
+                   textStyle: const TextStyle(
+                       color: Color.fromRGBO(34, 49, 46, 30),
+                       fontSize: 18,
+                       fontWeight: FontWeight.bold),
+                ),)),
+            // Text(
+            //   "قم بمسح كارنيه التأمين الخاصة بك  ",
+            //   style: GoogleFonts.roboto(
+            //     color: Color.fromRGBO(34, 49, 46, 30),
+            //     fontSize: 20,
+            //     fontWeight: FontWeight.bold,
+            //     letterSpacing: -4,
+            //   ),
+            //   textAlign: TextAlign.center,
+            // ),
             const SizedBox(
               height: 10,
             ),
@@ -98,15 +114,36 @@ class _signinState extends State<signin> {
               height: 7,
             ),
             FlatButton(
-              child: Text(
-                'رقم الكارنيه',
-                style: GoogleFonts.roboto(
-                  textStyle: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
-                ),
+              child:    Column(
+                children: [
+                  Visibility(
+                      visible: widget.type == 1,
+                      child:Text("رقم بطاقة التأمين",style: GoogleFonts.roboto(
+                   textStyle: const TextStyle(
+                       color: Colors.white,
+                       fontSize: 18,
+                       fontWeight: FontWeight.bold),
+                ),)),
+                     Visibility(
+                      visible: widget.type == 2,
+                      child:Text("رقم كارنيه النقابة",style: GoogleFonts.roboto(
+                   textStyle: const TextStyle(
+                       color: Colors.white,
+                       fontSize: 18,
+                       fontWeight: FontWeight.bold),
+                ),)),
+                ],
               ),
+                  
+              // child: Text(
+              //   'رقم الكارنيه',
+              //   style: GoogleFonts.roboto(
+              //     textStyle: const TextStyle(
+              //         color: Colors.white,
+              //         fontSize: 18,
+              //         fontWeight: FontWeight.bold),
+              //   ),
+              // ),
               color: const Color.fromRGBO(6, 187, 192, 1),
               textColor: Colors.white,
               minWidth: 220,

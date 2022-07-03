@@ -1,9 +1,9 @@
 
-
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/log/siginSuccess.dart';
+
 
 import '../widget.dart';
 
@@ -57,7 +57,7 @@ class _signUPState extends State<signUP> {
           // ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           child: SingleChildScrollView(
               child: Padding(
-            padding: EdgeInsets.fromLTRB(20, 80, 20, 0),
+            padding: EdgeInsets.fromLTRB(20, 60, 20, 0),
             child: Column(
               children: <Widget>[
 
@@ -69,7 +69,7 @@ class _signUPState extends State<signUP> {
                 const SizedBox(
                   height: 20,
                 ),
-                reusableTextField("أدخيل الجيميل ", Icons.person_outline, false,
+                reusableTextField("أدخل الجيميل ", Icons.mark_email_read_outlined, false,
                     _emailTextController),
                 const SizedBox(
                   height: 20,
@@ -86,27 +86,33 @@ class _signUPState extends State<signUP> {
                 ),
                 Visibility(
                   visible: widget.type == 2,
-                  child: reusableTextField("التخصص", Icons.person_outline,
+                  child: reusableTextField("التخصص", Icons.folder_special_outlined,
                       false, _fieldTextController),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+
                 Visibility(
                   visible: widget.type == 1,
                   child: reusableTextField("تاريخ الميلاد",
-                      Icons.person_outline, false, _dBTextController),
-                ),
-                const SizedBox(
+                      Icons.date_range, false, _dBTextController),
+                ), const SizedBox(
                   height: 20,
                 ),
-                reusableTextField("أدخل كلمة السر ", Icons.lock_outlined, true,
-                    _passwordTextController),
+                Visibility(
+                  visible: widget.type == 2,
+                  child: reusableTextField("رقم كارنيه النقابة ", Icons.credit_card,
+                      false, _fieldTextController),
+                ),
+                Visibility(
+                  visible: widget.type == 1,
+                  child: reusableTextField("رقم بطاقة التأمين ", Icons.credit_card,
+                      false, _fieldTextController),
+                ),
+
                 const SizedBox(
                   height: 20,
                 ),
 
-                firebaseUIButton(context, "انشاء حساب ", () {
+                firebaseUIButton(context, " إنشاء حساب   ", () {
                   FirebaseAuth.instance
                       .createUserWithEmailAndPassword(
                           email: _emailTextController.text,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/doctor/doctor_profile.dart';
 import 'package:flutter_application_1/log/home.dart';
 import 'package:flutter_application_1/log/signin.dart';
+import 'package:flutter_application_1/medical_file_details/patient_data.dart';
 import 'package:flutter_application_1/widgets/my_widgets.dart';
 
 import '../color.dart';
@@ -55,12 +56,12 @@ class MenuScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => doctor_profile(),
+                            builder: (context) =>const PatientData(),
                           ),
                         );
                       },
                       child: const TextWithIcon(
-                          text: 'الملف الشخصي', icon: Icons.person)),
+                          text: 'الملف الطبي', icon: Icons.person)),
                   const SizedBox(
                     height: 7,
                   ),

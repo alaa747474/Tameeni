@@ -22,10 +22,10 @@ class _DetailScreenState extends State<DetailScreen> {
     "06:00 PM",
   ];
   List y = [
-   "الثلاثاء  \n 10",
-   "الاتنين  \n 9",
-   "الأحد  \n 8",
-   "السبت  \n 7",
+   "الثلاثاء  \n 5",
+   "الاتنين  \n 4",
+   "الأحد  \n 3",
+   "السبت  \n 2",
   ];
 
   String selectedX = "";

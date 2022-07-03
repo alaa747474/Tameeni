@@ -146,76 +146,80 @@ class _NotificationsState extends State<Notifications> {
                           const SizedBox(
                             width: 15,
                           ),
-                          
-                               StreamBuilder<QuerySnapshot>(
-                                stream: medication,
-                                builder: (BuildContext context,
-                                    AsyncSnapshot<QuerySnapshot> snapshot) {
-                                  if (snapshot.hasError) {
-                                    return const BlackText(
-                                        text: 'something went wrong');
-                                  }
-                                  if (snapshot.connectionState ==
-                                      ConnectionState.waiting) {
-                                    return const BlackText(text: 'Loading');
-                                  }
-                                  final data = snapshot.requireData;
-                                  return SingleChildScrollView(
-                                    child: Container(
-                                      height:
-                                          MediaQuery.of(context).size.height,
-                                      width: 308,
-                                      child: ListView.builder(
-                                        physics:
-                                            const NeverScrollableScrollPhysics(),
-                                        shrinkWrap: true,
-                                        primary: false,
-                                        itemBuilder: (context, index) {
-                                          return InkWell(
-                                            onTap: (){
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>MedicationDetails(doc: snapshot.requireData.docs[index])));
-                                            },
-                                            child: Row(
+                          StreamBuilder<QuerySnapshot>(
+                            stream: medication,
+                            builder: (BuildContext context,
+                                AsyncSnapshot<QuerySnapshot> snapshot) {
+                              if (snapshot.hasError) {
+                                return const BlackText(
+                                    text: 'something went wrong');
+                              }
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const BlackText(text: 'Loading');
+                              }
+                              final data = snapshot.requireData;
+                              return SingleChildScrollView(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height,
+                                  width: 308,
+                                  child: ListView.builder(
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    shrinkWrap: true,
+                                    primary: false,
+                                    itemBuilder: (context, index) {
+                                      return InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      MedicationDetails(
+                                                          doc: snapshot
+                                                              .requireData
+                                                              .docs[index])));
+                                        },
+                                        child: Row(
+                                          children: [
+                                            Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
-                                                Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    SmallGreyText(
-                                                      text:
-                                                          '${data.docs[index]['firsttime']}',
-                                                      size: 16,
-                                                    ),
-                                                    SmallGreyText(
-                                                      text:
-                                                          '${data.docs[index]['secondtime']}',
-                                                      size: 16,
-                                                    ),
-                                                  ],
+                                                SmallGreyText(
+                                                  text:
+                                                      '${data.docs[index]['firsttime']}',
+                                                  size: 16,
                                                 ),
-                                                const SizedBox(
-                                                  width: 15,
+                                                SmallGreyText(
+                                                  text:
+                                                      '${data.docs[index]['secondtime']}',
+                                                  size: 16,
                                                 ),
-                                                MedicationContainer(
-                                                    image: 'assets/panadol.jpg',
-                                                    text:
-                                                        '${data.docs[index]['name']}',
-                                                    text2:
-                                                        '${data.docs[index]['description']}'),
                                               ],
                                             ),
-                                          );
-                                        },
-                                        itemCount: data.size,
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
+                                            const SizedBox(
+                                              width: 15,
+                                            ),
+                                            MedicationContainer(
+                                                image: 'assets/panadol.jpg',
+                                                text:
+                                                    '${data.docs[index]['name']}',
+                                                text2:
+                                                    '${data.docs[index]['description']}'),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                    itemCount: data.size,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
-                      
                     ],
                   ),
                 ))),

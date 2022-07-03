@@ -72,9 +72,8 @@ import '../color.dart';
 import 'mainHome.dart';
 import '../drawer/menu.dart';
 
-
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key,required this.x}) : super(key: key);
+  const HomeScreen({Key? key, required this.x}) : super(key: key);
   final bool x;
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -83,7 +82,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List screens = [
     const snipp(),
-
     const calen(),
     const mainHome(),
     const chat(),
@@ -105,29 +103,25 @@ class _HomeScreenState extends State<HomeScreen> {
         childDecoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30)),
         ),
-        drawer: widget.x==false?const MenuScreen():const PatientMenu(),
+        drawer: widget.x == false ? const MenuScreen() : const PatientMenu(),
         child: Scaffold(
           extendBody: true,
           appBar: AppBar(
             actions: [
               IconButton(
                 icon: const Icon(
-
                   Icons.menu_open_rounded,
                   color: Colors.white,
                   size: 30,
                 ),
                 padding: const EdgeInsets.only(top: 15),
-                onPressed: (){
+                onPressed: () {
                   advancedDrawerController.showDrawer();
                 },
               ),
-
-
-
             ],
-            leading:   Padding(
-              padding: const EdgeInsets.only(left: 10,top: 10),
+            leading: Padding(
+              padding: const EdgeInsets.only(left: 10, top: 10),
               child: Container(
                 height: 40,
                 width: 60,
@@ -138,46 +132,41 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-
 // leadingWidth: 100,
 
             backgroundColor: const Color.fromRGBO(6, 187, 192, 10),
 
             elevation: 0,
           ),
-          // appBar: AppBar(
-          //   centerTitle: true,
-          //   title: Padding(
-          //     padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-          //     child: Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //       children: [
-          //         // Image.asset('assets/images/logo.png', width: 50, height: 50),
-          //         IconButton(
-          //             onPressed: () {
-          //               advancedDrawerController.showDrawer();
-          //             },
-          //             icon: const Icon(
-          //               Icons.menu,
-          //               size: 30,
-          //             ))
-          //       ],
-          //     ),
-          //   ),
-          //   backgroundColor: MyColors().primaryColor,
-          //   elevation: 0,
-          // ),
-          bottomNavigationBar:
-          CurvedNavigationBar(
-            //key: _bottomNavigationKey,
+          bottomNavigationBar: CurvedNavigationBar(
             index: 2,
             height: 60.0,
             items: const <Widget>[
-              Icon(Icons.text_snippet_outlined, size: 25,color: Colors.white,),
-              Icon(Icons.calendar_today, size: 25,color: Colors.white,),
-              Icon(Icons.home_outlined, size: 25,color: Colors.white,),
-              Icon(Icons.chat_outlined, size: 25,color: Colors.white,),
-              Icon(Icons.perm_identity, size: 25,color: Colors.white,),
+              Icon(
+                Icons.text_snippet_outlined,
+                size: 25,
+                color: Colors.white,
+              ),
+              Icon(
+                Icons.calendar_today,
+                size: 25,
+                color: Colors.white,
+              ),
+              Icon(
+                Icons.home_outlined,
+                size: 25,
+                color: Colors.white,
+              ),
+              Icon(
+                Icons.chat_outlined,
+                size: 25,
+                color: Colors.white,
+              ),
+              Icon(
+                Icons.perm_identity,
+                size: 25,
+                color: Colors.white,
+              ),
             ],
             color: const Color.fromRGBO(6, 187, 192, 10),
             buttonBackgroundColor: const Color.fromRGBO(6, 187, 192, 10),
@@ -191,48 +180,6 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             letIndexChange: (index) => true,
           ),
-          // CurvedNavigationBar(
-          //   index: 2,
-          //   key: bottomNavigationKey,
-          //   color: Color.fromRGBO(6, 187, 192, 10),
-          //   buttonBackgroundColor: Color.fromRGBO(6, 187, 192, 10),
-          //   backgroundColor: Colors.transparent,
-          //   animationCurve: Curves.easeInOut,
-          //   animationDuration: const Duration(milliseconds: 600),
-          //   items: const [
-          //     Icon(
-          //       Icons.text_snippet_outlined,
-          //       size: 25,
-          //       color: Colors.white,
-          //     ),
-          //     Icon(
-          //       Icons.calendar_today,
-          //       size: 25,
-          //       color: Colors.white,
-          //     ),
-          //     Icon(
-          //       Icons.home_outlined,
-          //       size: 25,
-          //       color: Colors.white,
-          //     ),
-          //     Icon(
-          //       Icons.chat_outlined,
-          //       size: 25,
-          //       color: Colors.white,
-          //     ),
-          //     Icon(
-          //       Icons.perm_identity,
-          //       size: 25,
-          //       color: Colors.white,
-          //     ),
-          //   ],
-          //   onTap: (index) {
-          //     setState(() {
-          //       selectedIndex = index;
-          //     });
-          //   },
-          //   letIndexChange: (index)=>true,
-          // ),
           body: screens[_currentindex],
         ),
       ),

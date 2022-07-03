@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/doctor/medical_prescription.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import 'examine.dart';
 
@@ -25,6 +26,14 @@ class _subjectState extends State<subject> {
 //     'https://m.gomhuriaonline.com/Upload/News/10-11-2021_20_50_40_GomhuriaOnline_331636570240.jpg',
 //     'https://www.elaosboa.com/wp-content/uploads/2022/02/elaosboa57264.jpg'
 //   ];
+
+String url='https://altibbi.com/%D9%85%D8%B5%D8%B7%D9%84%D8%AD%D8%A7%D8%AA-%D8%B7%D8%A8%D9%8A%D8%A9/%D9%85%D8%B1%D8%B6-%D8%A7%D9%84%D8%B3%D9%83%D8%B1%D9%8A/%D8%A7%D9%84%D8%B3%D9%83%D8%B1%D9%8A';
+
+void lanchUrl(String url)async{
+  await canLaunchUrlString(url)?
+  await launchUrlString(url):throw 'error';
+
+}
 
   @override
   Widget build(BuildContext context) {
@@ -132,9 +141,12 @@ class _subjectState extends State<subject> {
                     ),
                   ),
                   itemBuilder: (BuildContext context, int index) {
-                    return Image.asset(
-                      images[index],
-                      fit: BoxFit.fill,
+                    return InkWell(
+                      onTap: (){lanchUrl(url);},
+                      child: Image.asset(
+                        images[index],
+                        fit: BoxFit.fill,
+                      ),
                     );
                   },
                 ),

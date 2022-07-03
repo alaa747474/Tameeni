@@ -18,7 +18,7 @@ class _snippState extends State<snipp> {
         backgroundColor: const Color.fromRGBO(6, 187, 192, 1),
         body: Stack(children: [
           Container(
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -39,10 +39,10 @@ class _snippState extends State<snipp> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      PerciptionScreen()));
+                                      const PerciptionScreen()));
                         },
-                        child: Image(
-                          image: AssetImage("assets/n1.jpg"),
+                        child: const Image(
+                          image: const AssetImage("assets/n1.jpg"),
                           fit: BoxFit.cover,
                         )),
                   ),
@@ -52,12 +52,12 @@ class _snippState extends State<snipp> {
                       Text(
                         "إنشاء روشتة جديدة",
                         style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.bold)),
                       ),
-                      Icon(
+                      const Icon(
                         Icons.add,
-                        color: Color.fromRGBO(6, 187, 192, 1),
+                        color: const Color.fromRGBO(6, 187, 192, 1),
                         size: 35,
                       ),
                     ],
@@ -66,13 +66,13 @@ class _snippState extends State<snipp> {
                     "يمكنك حفظ شكل جاهز للاستخدام \n"
                     "بسهولةٍ",
                     style: GoogleFonts.roboto(
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.grey)),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   InkWell(onTap: (){
@@ -84,18 +84,18 @@ class _snippState extends State<snipp> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.text_snippet_outlined,
                                 color: Colors.grey,
                                 size: 25,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 30,
                               ),
                               Text(
                                 " روشتة علاج",
                                 style: GoogleFonts.roboto(
-                                    textStyle: TextStyle(
+                                    textStyle: const TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold)),
                               ),

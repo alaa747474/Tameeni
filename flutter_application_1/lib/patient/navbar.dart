@@ -45,7 +45,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         childDecoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30)),
         ),
-        drawer: const MenuScreen(),
+        drawer:  MenuScreen(),
       child: Scaffold(
         extendBody: true,
         bottomNavigationBar: CurvedNavigationBar(

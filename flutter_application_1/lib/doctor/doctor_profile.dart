@@ -71,7 +71,7 @@ class _doctor_profileState extends State<doctor_profile> {
           Padding(
             padding: const EdgeInsets.only(left: 90, top: 10),
             child: Row(
-              children: [
+              children: const [
                 Icon(
                   Icons.edit_location_outlined,
                   color: Colors.teal,
@@ -90,7 +90,7 @@ class _doctor_profileState extends State<doctor_profile> {
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               Text(
                 "جراحه عامة",
                 style: TextStyle(color: Colors.grey, fontSize: 20),
@@ -102,7 +102,7 @@ class _doctor_profileState extends State<doctor_profile> {
               padding: const EdgeInsets.only(right: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
+                children: const [
                   Text(
                     "السيرة الذاتية",
                     style: TextStyle(color: Colors.black, fontSize: 22),
@@ -170,7 +170,7 @@ class _doctor_profileState extends State<doctor_profile> {
             )),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
+              children: const [
                 Text(
                   "مغلق الان",
                   style: TextStyle(color: Colors.red, fontSize: 14),
@@ -191,7 +191,7 @@ class _doctor_profileState extends State<doctor_profile> {
               padding: const EdgeInsets.only(right: 15,bottom: 10,top: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                children: const [
 
                   Text(
                     "050203030-020100044444",
@@ -208,7 +208,7 @@ class _doctor_profileState extends State<doctor_profile> {
               padding: const EdgeInsets.only(right: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                children: const [
 
                   Text(
                     "شارع بنك مصر عيادة 5 شارع البحر",

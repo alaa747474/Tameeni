@@ -18,11 +18,11 @@ class _mainHomeState extends State<mainHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromRGBO(6, 187, 192, 10),
+        backgroundColor: const Color.fromRGBO(6, 187, 192, 10),
 
         
         body: Container(
-          margin: EdgeInsets.only(top: 10),
+          margin: const EdgeInsets.only(top: 10),
             decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -44,7 +44,7 @@ class _mainHomeState extends State<mainHome> {
                       child: Text(
                         "مرحبا د/ على",
                         style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold)),
 // textAlign: TextAlign.center,
                       ),
@@ -116,14 +116,14 @@ class _mainHomeState extends State<mainHome> {
                             height: 140,
                             width: 150,
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(6, 187, 192, 1).withOpacity(.15),
+                                color: const Color.fromRGBO(6, 187, 192, 1).withOpacity(.15),
                                 borderRadius: BorderRadius.circular(20)),
                             child: Center(
                               child: Text("0\n"
 
                                   "إستشارة", style: GoogleFonts.roboto(
 
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
 
                                   fontSize: 20, fontWeight: FontWeight.bold,color: Color.fromRGBO(6, 187, 192, 1), ),),textAlign: TextAlign.center,
 
@@ -160,7 +160,7 @@ class _mainHomeState extends State<mainHome> {
 // decoration: BoxDecoration(
 //      color: Color.fromRGBO(6, 170, 192, 80),
 //      borderRadius: BorderRadius.circular(10)),
-                            margin: EdgeInsets.only(bottom: 112, left: 120),
+                            margin: const EdgeInsets.only(bottom: 112, left: 120),
                             child: const Padding(
                               padding: EdgeInsets.all(3.0),
                              child: Image(image: AssetImage("assets/875275.png"),),
@@ -176,14 +176,14 @@ class _mainHomeState extends State<mainHome> {
                             height: 140,
                             width: 150,
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(6, 187, 192, 1).withOpacity(.15),
+                                color: const Color.fromRGBO(6, 187, 192, 1).withOpacity(.15),
                                 borderRadius: BorderRadius.circular(20)),
                             child: Center(
                               child: Text("1\n"
 
                                   "فحص", style: GoogleFonts.roboto(
 
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
 
                                   fontSize: 20, fontWeight: FontWeight.bold,color: Color.fromRGBO(6, 187, 192, 1), ),),textAlign: TextAlign.center,
 
@@ -220,7 +220,7 @@ class _mainHomeState extends State<mainHome> {
 // decoration: BoxDecoration(
 //     color: Color.fromRGBO(6, 170, 192, 80),
 //     borderRadius: BorderRadius.circular(10)),
-                            margin: EdgeInsets.only(bottom: 112, left: 120),
+                            margin: const EdgeInsets.only(bottom: 112, left: 120),
                             child: const Padding(
                               padding: EdgeInsets.all(3.0),
                               child: Image(image: AssetImage("assets/875275.png"),),

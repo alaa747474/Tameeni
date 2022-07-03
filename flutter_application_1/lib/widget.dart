@@ -13,32 +13,50 @@ Image logoWidget(String imageName) {
   );
 }
 
-TextField reusableTextField(String text, IconData icon, bool isPasswordType,
+Container reusableTextField(String text, IconData icon, bool isPasswordType,
     TextEditingController controller) {
-  return TextField(
-    controller: controller,
-    obscureText: isPasswordType,
-    enableSuggestions: !isPasswordType,
-    autocorrect: !isPasswordType,
-    cursorColor: Color.fromRGBO(6, 187, 192, 100),
-    style: TextStyle(color: Colors.white.withOpacity(0.9)),
-    decoration: InputDecoration(
-      prefixIcon: Icon(
-        icon,
-        color: Colors.white70,
+  return Container(
+    decoration: BoxDecoration(
+      border: Border.all(
+        width: 2.5,
+        color: Color.fromRGBO(6, 187, 192, 100),
       ),
-      labelText: text,
-      labelStyle: TextStyle(color: Colors.white),
-      filled: true,
-      floatingLabelBehavior: FloatingLabelBehavior.never,
-      fillColor: Color.fromRGBO(6, 187, 192, 100),
-      border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
-          borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
+      color: Colors.white,
+      borderRadius: BorderRadius.only(
+        topLeft: const Radius.circular(40.0),
+        topRight: const Radius.circular(40.0),
+        bottomRight: const Radius.circular(40.0),
+      ),
     ),
-    keyboardType: isPasswordType
-        ? TextInputType.visiblePassword
-        : TextInputType.emailAddress,
+    child: TextField(
+      controller: controller,
+      obscureText: isPasswordType,
+      enableSuggestions: !isPasswordType,
+      autocorrect: !isPasswordType,
+      // cursorColor:  Color.fromRGBO(6, 187, 192, 100),
+      style: TextStyle(color: Colors.white.withOpacity(0.9)),
+      decoration: InputDecoration(
+        prefixIcon: Icon(
+          icon,
+          color: Color.fromRGBO(6, 187, 192, 100),
+        ),
+        labelText: text,
+        labelStyle: TextStyle(color: Color.fromRGBO(6, 187, 192, 100)),
+        filled: true,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: const Radius.circular(40.0),
+              topRight: const Radius.circular(40.0),
+              bottomRight: const Radius.circular(40.0),
+            ),
+            borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
+      ),
+      keyboardType: isPasswordType
+          ? TextInputType.visiblePassword
+          : TextInputType.emailAddress,
+    ),
   );
 }
 
@@ -48,37 +66,31 @@ Container firebaseUIButton(BuildContext context, String title, Function onTap) {
     height: 50,
     margin: EdgeInsets.all(10),
     decoration: BoxDecoration(
-        border: Border.all(
-          color: Color.fromRGBO(6, 187, 192, 10),
-        ),
+        // color: Color.fromRGBO(6, 187, 192, 10),
+        // border: Border.all(color: Color.fromRGBO(6, 187, 192, 10),),
         boxShadow: [
           BoxShadow(
-            color: Color.fromRGBO(6, 187, 192, 100),
+            color: Color.fromRGBO(60, 107, 102, 200),
             spreadRadius: .21,
-            blurRadius: 5,
+            blurRadius: 3,
             offset: Offset(0, .5), // changes position of shadow
           ),
-        ],
-        borderRadius: BorderRadius.circular(90)),
+        ], borderRadius: BorderRadius.circular(90)),
     child: ElevatedButton(
       onPressed: () {
         onTap();
       },
-      child: Center(
-        child: Text(
-          title,
-          style: const TextStyle(
-              color: Color.fromRGBO(6, 187, 192, 10),
-              fontWeight: FontWeight.bold,
-              fontSize: 22),
-        ),
+      child: Text(
+        title,
+        style: const TextStyle(
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
       ),
       style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith((states) {
             if (states.contains(MaterialState.pressed)) {
               return Colors.black26;
             }
-            return Colors.white;
+            return Color.fromRGBO(6, 187, 192, 10);
           }),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))),
@@ -136,7 +148,7 @@ Widget pact(String text, col) => Padding(
                     Row(
                       children: [
                         Text(
-                          "04:00م",
+                          "3:30م",
                           style: TextStyle(
                             color: Colors.grey,
                             fontWeight: FontWeight.w400,
@@ -170,7 +182,7 @@ Widget pact(String text, col) => Padding(
                     ),
                   ),
                   Text(
-                    "5/7/2022",
+                    "12/3/2022",
                     style: TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.w400,
@@ -335,7 +347,7 @@ Widget calen1(String text, clo, ico) => Padding(
                     Row(
                       children: [
                         Text(
-                          "04:00م",
+                          "3:30م",
                           style: TextStyle(
                             color: Colors.grey,
                             fontWeight: FontWeight.w400,
@@ -369,7 +381,7 @@ Widget calen1(String text, clo, ico) => Padding(
                     ),
                   ),
                   Text(
-                    "5/7/2022",
+                    "12/3/2022",
                     style: TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.w400,
@@ -387,7 +399,9 @@ Widget calen1(String text, clo, ico) => Padding(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     image: DecorationImage(
-                        image: AssetImage('assets/45.jpg'), fit: BoxFit.cover)),
+                        image: NetworkImage(
+                            "https://i.pinimg.com/236x/23/c4/c0/23c4c0e7bfed9104087d8bd728473e9e.jpg"),
+                        fit: BoxFit.cover)),
                 //  child: Image(image:NetworkImage("https://i.pinimg.com/564x/ab/55/94/ab559469b76c104a8d2cb3dba5387485.jpg"),),
               ),
             ],
@@ -617,7 +631,7 @@ Widget chat1(tt, cll) => Padding(
           Column(
             children: [
               Text(
-                "02:51م",
+                "3:30م",
                 style:
                     TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
               ),
@@ -642,7 +656,7 @@ Widget chat1(tt, cll) => Padding(
                     color: Colors.black),
               ),
               Text(
-                "اشعر ببعض الالام فى جزء من اليد ",
+                "أشعر بألم شديد فى هذا الجزء من ",
                 style: GoogleFonts.roboto(
                     textStyle:
                         TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -710,7 +724,7 @@ Widget noti1() => Padding(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text("01:38م"),
+          const Text("3:30م"),
           const SizedBox(
             width: 30,
           ),
@@ -718,14 +732,14 @@ Widget noti1() => Padding(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               const Text(
-                "إشعار جديد من احمد محمد",
+                "إشعار جديد من محمد علي",
                 style: const TextStyle(
                     color: Colors.cyan,
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                "أرسل احمد رسالة جديدة سوف تجدها\n في المراسلة",
+                "أرسل علي رسالة جديدة سوف تجدها\n في المراسلة",
                 style: TextStyle(color: Colors.grey[400]),
                 textAlign: TextAlign.center,
               ),
@@ -745,7 +759,7 @@ Widget noti2() => Padding(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "01:38م",
+            "3:30م",
             style: TextStyle(color: Colors.grey.shade400),
           ),
           const SizedBox(
@@ -755,14 +769,14 @@ Widget noti2() => Padding(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                "إشعار جديد من احمد محمد",
+                "إشعار جديد من محمد علي",
                 style: TextStyle(
                     color: Colors.cyan.shade100,
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                "أرسل احمد رسالة جديدة سوف تجدها\n في المراسلة",
+                "أرسل علي رسالة جديدة سوف تجدها\n في المراسلة",
                 style: TextStyle(color: Colors.grey[400]),
                 textAlign: TextAlign.center,
               ),

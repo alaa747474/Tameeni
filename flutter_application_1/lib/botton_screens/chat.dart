@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widget.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,11 +19,11 @@ class _chatState extends State<chat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromRGBO(6, 187, 192, 10),
+        backgroundColor: const Color.fromRGBO(6, 187, 192, 10),
 
    
     body: Container(
-        margin: EdgeInsets.only(top: 10),
+        margin: const EdgeInsets.only(top: 10),
     decoration: const BoxDecoration(
     color: Colors.white,
     borderRadius: BorderRadius.only(
@@ -41,7 +40,7 @@ class _chatState extends State<chat> {
             Text(
               "الاستشارات ",
               style: GoogleFonts.roboto(
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                       fontSize: 26, fontWeight: FontWeight.bold)),
             ),
             Padding(
@@ -50,7 +49,7 @@ class _chatState extends State<chat> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                 
-                SizedBox(width: 20,),
+                const SizedBox(width: 20,),
                 Container(
                   decoration: BoxDecoration(
                       boxShadow: const [
@@ -74,7 +73,7 @@ class _chatState extends State<chat> {
                       hintText: ' بحث',
 
 
-                      hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 20,letterSpacing: 2,),
+                      hintStyle: const TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 20,letterSpacing: 2,),
 
                       border: const OutlineInputBorder(
                         //borderRadius: BorderRadius.circular(20),
@@ -85,13 +84,13 @@ class _chatState extends State<chat> {
                 ),
               ],),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 0),
               child: Row(mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                
-                SizedBox(width: 20,),
+                const SizedBox(width: 20,),
                 Column(
 
                   children: [
@@ -100,11 +99,11 @@ class _chatState extends State<chat> {
                       child: Text(
                         "الكل ",
                         style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold,color: Color.fromRGBO(6, 187, 192, 10),)),
                       ),
                     ),
-                    Container(width: 60,height: 5,decoration: BoxDecoration(color: Color.fromRGBO(6, 187, 192, 30),
+                    Container(width: 60,height: 5,decoration: const BoxDecoration(color: Color.fromRGBO(6, 187, 192, 30),
                         borderRadius: BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15))),)
                   ],
                 ),
@@ -112,7 +111,7 @@ class _chatState extends State<chat> {
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
-              child: Container(height: 2,color: Color.fromRGBO(6, 187, 192, 100),),
+              child: Container(height: 2,color: const Color.fromRGBO(6, 187, 192, 100),),
             ),
             Flexible(
               child: ListView(
@@ -127,14 +126,14 @@ class _chatState extends State<chat> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DetailChat(
+                          builder: (context) => const DetailChat(
 
                           ),
                         ),
                       );
                     },
                     child: Container(color:x==true? Colors.teal.shade50:Colors.transparent,
-                        child: chat1("3",x==true?Color.fromRGBO(6, 187, 192, 10):Colors.transparent)),
+                        child: chat1("3",x==true?const Color.fromRGBO(6, 187, 192, 10):Colors.transparent)),
                   ),
                  
 

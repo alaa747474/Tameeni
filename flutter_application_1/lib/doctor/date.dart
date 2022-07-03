@@ -1,6 +1,4 @@
-import 'package:card_swiper/card_swiper.dart';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widget.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -160,9 +158,9 @@ class _dateState extends State<date> {
                                         )),
                                     daysOfWeekStyle: const DaysOfWeekStyle(
                                       weekendStyle:
-                                      const TextStyle(color:Colors.teal),
+                                      TextStyle(color:Colors.teal),
                                       weekdayStyle:
-                                      const TextStyle(color:Colors.teal),
+                                      TextStyle(color:Colors.teal),
                                     ),
                                     selectedDayPredicate: (DateTime date) {
                                       return isSameDay(selectedDay, date);
@@ -171,7 +169,7 @@ class _dateState extends State<date> {
                                 ),
                                 // Center(child: GreyText(text: DateTime.now().toString(),)),
                                 SingleChildScrollView(
-                                  padding: EdgeInsets.only(top: 40,),
+                                  padding: const EdgeInsets.only(top: 40,),
                                   scrollDirection: Axis.horizontal,
                                   child: Row(
                                     children: [

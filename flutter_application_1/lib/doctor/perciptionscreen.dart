@@ -5,7 +5,7 @@ import 'package:flutter_application_1/doctor/medical_prescription.dart';
 import 'package:flutter_application_1/widgets/my_widgets.dart';
 
 class PerciptionScreen extends StatefulWidget {
-  const PerciptionScreen({ Key? key }) : super(key: key);
+  const PerciptionScreen({Key? key}) : super(key: key);
 
   @override
   State<PerciptionScreen> createState() => _PerciptionScreenState();
@@ -38,7 +38,6 @@ class _PerciptionScreenState extends State<PerciptionScreen> {
                     width: 50,
                     height: 50,
                   ),
-                
                 ],
               ),
             )),
@@ -56,66 +55,74 @@ class _PerciptionScreenState extends State<PerciptionScreen> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(right: 30, left: 15, top: 20),
-                  child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      
-          Column(
-            children: [
-              Container(
-            padding: const EdgeInsets.only(right: 20),
-              decoration: BoxDecoration(
-                border: Border.all(color: MyColors().primaryColor),
-                color: MyColors().white,
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: TextField(
-                controller: title,
-                decoration:  const InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'اسم الدواء',hintStyle: TextStyle(color: Colors.grey),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              padding: const EdgeInsets.only(right: 20),
-              decoration: BoxDecoration(
-                border: Border.all(color: MyColors().primaryColor),
-                color: MyColors().white,
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: TextField(
-                controller: content,
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'وصف الدواء',hintStyle: const TextStyle(color: Colors.grey),
-                ),
-              ),
-              
-            ),
-            ],
-          ),
-          const SizedBox(height: 40,),
-             MaterialButton(
-            onPressed: () {
-              ref.add({
-                'title': title.text,
-                'content': content.text,
-              }).whenComplete(() {
-                Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (_) => const MedicalPrescription()));
-              });
-            },
-            child: Container(width: 200,height: 50,
-              decoration: BoxDecoration(color: MyColors().primaryColor,
-              borderRadius: BorderRadius.circular(10)
-              ),
-              
-              child: const Center(child: WhiteText(text: 'اضف الي الروشتة', size:17))
-            ),
-          ),
+                      Column(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(right: 20),
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: MyColors().primaryColor),
+                                color: MyColors().white,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: TextField(
+                              controller: title,
+                              decoration: const InputDecoration(
+                                border: InputBorder.none,
+                                hintText: 'اسم الدواء',
+                                hintStyle: TextStyle(color: Colors.grey),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.only(right: 20),
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: MyColors().primaryColor),
+                                color: MyColors().white,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: TextField(
+                              controller: content,
+                              decoration: const InputDecoration(
+                                border: InputBorder.none,
+                                hintText: 'وصف الدواء',
+                                hintStyle: TextStyle(color: Colors.grey),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      MaterialButton(
+                        onPressed: () {
+                          ref.add({
+                            'title': title.text,
+                            'content': content.text,
+                          }).whenComplete(() {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) =>
+                                        const MedicalPrescription()));
+                          });
+                        },
+                        child: Container(
+                            width: 200,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                color: MyColors().primaryColor,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: const Center(
+                                child: WhiteText(
+                                    text: 'اضف الي الروشتة', size: 17))),
+                      ),
                     ],
                   ),
                 ))),

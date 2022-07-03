@@ -115,9 +115,7 @@ class _MedicalFileState extends State<MedicalFile> {
                             const SizedBox(
                               height: 20,
                             ),
-                            InkWell(
-                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>PatientData()));},
-                              child: const GreyText(text: 'امسح الكود لرؤية الملف الطبي'))
+                            const GreyText(text: 'امسح الكود لرؤية الملف الطبي')
                           ],
                         ),
                         SizedBox(height: 40,),

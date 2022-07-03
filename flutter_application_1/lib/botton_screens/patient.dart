@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/medical_file_details/medical_file.dart';
 import 'package:flutter_application_1/widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,7 +22,7 @@ class _patientState extends State<patient> {
       body: Stack(
           children: [
          Container(
-           margin: EdgeInsets.only(top: 10),
+           margin: const EdgeInsets.only(top: 10),
           decoration: const BoxDecoration(
            color: Colors.white,
            borderRadius: BorderRadius.only(
@@ -68,7 +69,9 @@ class _patientState extends State<patient> {
                      ),
                    ],),
                  ),
-                 pacti("تحويل ", Colors.teal,Colors.teal.shade100,),
+                 InkWell(onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MedicalFile()));
+                 },child: pacti("تحويل ", Colors.teal,Colors.teal.shade100,)),
                 
 
                 // pacti("تحويل ", Colors.teal,Colors.teal.shade100,),

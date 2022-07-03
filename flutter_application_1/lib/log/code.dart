@@ -19,7 +19,7 @@ class code extends StatefulWidget {
 
 class _codeState extends State<code> {
   final formkey = GlobalKey<FormState>();
-  String _pass = '1111';
+  String _pass = '111222555';
   final _passwordController = TextEditingController();
   final _emailController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
@@ -28,7 +28,7 @@ class _codeState extends State<code> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(6, 187, 192, 10),
+      backgroundColor: const Color.fromRGBO(6, 187, 192, 10),
       appBar: AppBar(
         // actions: [
         //   IconButton(
@@ -57,7 +57,7 @@ class _codeState extends State<code> {
       ),
       body: Stack(children: [
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(20), topLeft: Radius.circular(20))),
@@ -87,7 +87,7 @@ class _codeState extends State<code> {
                     margin: const EdgeInsets.symmetric(vertical: 10),
                     child: Text(
                       widget.type ==2 ? "أدخل كارنيه النقابة": "أدخل رقم التأمين",
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color.fromRGBO(6, 187, 192, 10),
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -109,7 +109,7 @@ class _codeState extends State<code> {
                     //     color: Colors.white,
                     //     borderRadius: BorderRadius.circular(20)),
                     child: Container(
-                      padding: EdgeInsets.all(28),
+                      padding: const EdgeInsets.all(28),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(12),
@@ -147,23 +147,23 @@ class _codeState extends State<code> {
                             showCursor: false,
                             readOnly: false,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                               color: Color.fromRGBO(34, 49, 46, 30),
                             ),
                             keyboardType: TextInputType.number,
-                            maxLength: 4,
+                            maxLength: 9,
                             decoration: InputDecoration(
-                              counter: Offstage(),
+                              counter: const Offstage(),
                               enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       width: 2, color: Colors.black12),
                                   borderRadius: BorderRadius.circular(12)),
                               focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     width: 2,
-                                    color: Color.fromRGBO(6, 187, 192, 10),
+                                    color: const Color.fromRGBO(6, 187, 192, 10),
                                   ),
                                   borderRadius: BorderRadius.circular(12)),
                             ),
@@ -175,10 +175,10 @@ class _codeState extends State<code> {
                   Padding(
                     padding: const EdgeInsets.only(left: 260),
                     child: SizedBox.fromSize(
-                      size: Size(66, 66),
+                      size: const Size(66, 66),
                       child: ClipOval(
                         child: Material(
-                          color: Color.fromRGBO(6, 187, 192, 30),
+                          color: const Color.fromRGBO(6, 187, 192, 30),
                           // button color
                           child: InkWell(
                             splashColor: Colors.transparent, // splash color

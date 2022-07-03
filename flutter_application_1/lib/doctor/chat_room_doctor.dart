@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/color.dart';
 import 'package:flutter_application_1/widgets/my_widgets.dart';
@@ -6,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../botton_screens/botton.dart';
 import '../botton_screens/chat.dart';
 
+final _firestore = FirebaseFirestore.instance;
 class DetailChat extends StatefulWidget {
   const DetailChat({Key? key}) : super(key: key);
 
@@ -14,9 +17,30 @@ class DetailChat extends StatefulWidget {
 }
 
 class _DetailChatState extends State<DetailChat> {
+  final messageTextController = TextEditingController();
+  final _auth = FirebaseAuth.instance;
+  late User signedInUser;
+  String? messageText;
+
   final Stream<QuerySnapshot> messages =
-      FirebaseFirestore.instance.collection('messages').snapshots();
+  FirebaseFirestore.instance.collection('messages').snapshots();
+
   @override
+  void initState() {
+    super.initState();
+    Firebase.initializeApp().whenComplete(() { 
+      print("completed");
+      setState(() {});
+    });
+  }
+void messagesStreams() async {
+await for(var snapshot in  _firestore.collection('messages').snapshots()){
+  for (var message in snapshot.docs){
+  print(message.data());
+  }
+}
+}
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(6, 187, 192, 1),
@@ -26,18 +50,6 @@ class _DetailChatState extends State<DetailChat> {
           padding: const EdgeInsets.only(top: 7),
           child: Row(
             children: [
-              // IconButton(
-              //   onPressed: () {
-              //     Navigator.push(context, MaterialPageRoute(builder: (context) {
-              //       return const HomeScreen();
-              //     }));
-              //   },
-              //   icon: const Icon(
-              //     Icons.arrow_back_ios,
-              //     size: 30,
-              //   ),
-              //   color: Colors.white,
-              // ),
               Container(
                   width: 50,
                   height: 50,
@@ -84,7 +96,10 @@ class _DetailChatState extends State<DetailChat> {
         backgroundColor: const Color.fromRGBO(6, 187, 192, 10),
         elevation: 0,
       ),
-      body: Container(
+      body: 
+      
+      Container(
+        
         margin: EdgeInsets.only(top: 10),
         decoration: BoxDecoration(
             color: Colors.white,
@@ -92,10 +107,72 @@ class _DetailChatState extends State<DetailChat> {
                 topRight: Radius.circular(20), topLeft: Radius.circular(20))),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
+        
         child: Stack(children: [
-         
+         SafeArea(
+        
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const MessageStreamBuilder(),
+            Container(
+              decoration: const BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color:  Color.fromRGBO(6, 187, 192, 1),
+                    width: 2,
+          
+                  ),
+                ),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: messageTextController,
+                      onChanged: (value) {
+                        messageText = value;
+                      },
+                      decoration:const InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 20,
+                        ),
+                        hintText: '........أكتب هنا',
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      messageTextController.clear();
+                      _firestore.collection('messages').add({
+                        'text': messageText,
+                        'time' : FieldValue.serverTimestamp(),
+                      });
+                    },
+                    child:const Text(
+                      'إرسال',
+                      style: TextStyle(
+                        color:  Color.fromRGBO(6, 187, 192, 1),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+          
+            ),
+            
+          ],
+        ),
+         ),
           Align(
             child: ListView(
+              
               children: [
                 Container(
                   alignment: Alignment.topCenter,
@@ -119,6 +196,7 @@ class _DetailChatState extends State<DetailChat> {
                       return const BlackText(text: 'Loading');
                     }
                     final data = snapshot.requireData;
+                     
                     return Container(alignment: Alignment.topLeft,
                       height: MediaQuery.of(context).size.height*0.8,
                       width: 308,
@@ -137,25 +215,22 @@ class _DetailChatState extends State<DetailChat> {
                                       CrossAxisAlignment.start,
                                   children: [
                                     Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.end,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
+                                      
                                       children: [
                                         Material(
                                             elevation: 5,
                                             borderRadius:
                                                 const BorderRadius.only(
                                               topRight: Radius.circular(30),
-                                              bottomLeft: Radius.circular(30),
+                                              bottomLeft: Radius.circular(10),
                                               bottomRight:
                                                   Radius.circular(30),
                                             ),
                                             color: MyColors().white,
                                             child: SmallGreyText(
                                               text:
-                                                  '   ${data.docs[index]['text']}     ',
-                                              size: 16,
+                                                  '${data.docs[index]['text']}',
+                                              size: 17, 
                                             )),
                                       ],
                                     )
@@ -169,15 +244,89 @@ class _DetailChatState extends State<DetailChat> {
                           );
                         },
                         itemCount: data.size,
+                      
                       ),
                     );
                   },
+                  
                 ),
               ],
+              
             ),
           ),
+           
         ]),
+       
+      ),
+
+    );
+    
+  }
+}
+class MessageStreamBuilder extends StatelessWidget {
+  const MessageStreamBuilder({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+            stream: _firestore.collection('messages').orderBy('time').snapshots(),
+            builder:(context , snapshot) {
+              List<MessageLine> messageWidgets = [];
+
+              if (!snapshot.hasData){
+               return const Padding(
+                 padding:  EdgeInsets.only(top: 10.0),
+                 child: Center(
+                  child:  CircularProgressIndicator(
+                    backgroundColor: Color.fromRGBO(6, 187, 192, 1),),
+                       ),
+               );
+              }
+              
+               final messages = snapshot.data!.docs.reversed;
+              // for (var message in messages) {
+              //   final messageText = message.get('text');
+              //   final messageWidget = MessageLine(text: messageText); 
+                
+              //   messageWidgets.add(messageWidget);
+              // }
+              return Expanded(
+                child: ListView(
+                reverse: true,
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  children: messageWidgets,
+                ),
+              );
+            },
+            );
+  }
+}
+
+class MessageLine extends StatelessWidget {
+  const MessageLine ({this.text, Key? key }) : super(key: key);
+final String? text;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Material(
+            elevation: 5,
+            borderRadius:const BorderRadius.only(
+              topLeft: Radius.circular(30),
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+            ),
+            color: const Color.fromRGBO(6, 187, 192, 1),
+            child: Text('  $text  ', 
+                        style:const TextStyle(fontSize: 22, color: Colors.white)),
+          ),
+        ],
       ),
     );
+      
+    
   }
 }

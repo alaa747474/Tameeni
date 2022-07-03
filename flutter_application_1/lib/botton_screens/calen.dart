@@ -21,7 +21,7 @@ class _calenState extends State<calen> {
       body: Stack(
           children: [
       Container(
-        margin: EdgeInsets.only(top: 10),
+        margin: const EdgeInsets.only(top: 10),
       decoration: const BoxDecoration(
       color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -44,7 +44,7 @@ class _calenState extends State<calen> {
 
                   InkWell(
                     onTap: (){ Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => date()));
+                        MaterialPageRoute(builder: (context) => const date()));
                     },
                     child: Container(width: MediaQuery.of(context).size.width*.4,
                       height: 50,
@@ -66,7 +66,7 @@ class _calenState extends State<calen> {
                         child: Text(
                           "مواعيدى",
                           style: GoogleFonts.roboto(
-                            color: Color.fromRGBO(6, 187, 192, 10),
+                            color: const Color.fromRGBO(6, 187, 192, 10),
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
                           ),
@@ -133,7 +133,7 @@ class _calenState extends State<calen> {
                   ),
                 ],),
               ),
-              calen1("فحص",Color.fromRGBO(6, 187, 192, 1),Icons.check_circle),
+              calen1("فحص",const Color.fromRGBO(6, 187, 192, 1),Icons.check_circle),
               
             ],
           ),
